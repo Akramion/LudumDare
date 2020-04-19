@@ -26,10 +26,7 @@ public class MovementController : MonoBehaviour
             movement.y *= moveLimiter;
         }
 
-<<<<<<< HEAD
         rigidbody.velocity = new Vector2(movement.x * moveSpeed, movement.y * moveSpeed);
-=======
-         rigidbody.velocity = new Vector2(movement.x * moveSpeed, movement.y * moveSpeed);
 
         if (rigidbody.velocity.x > 0 && !m_FacingRight)
         {
@@ -39,7 +36,6 @@ public class MovementController : MonoBehaviour
         {
             Flip();
         }
->>>>>>> a1750b3a1f8b3a3b7135f02cb2726ff99a7a1766
     }
 
 	private void Flip()
