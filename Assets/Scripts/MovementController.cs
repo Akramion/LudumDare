@@ -19,6 +19,6 @@ public class MovementController : MonoBehaviour
             movement.y *= moveLimiter;
         }
 
-         rigidbody.velocity = new Vector2(movement.x * moveSpeed, movement.y * moveSpeed);
+        rigidbody.velocity = new Vector2(movement.x * moveSpeed, movement.y * moveSpeed);
     }
 }
