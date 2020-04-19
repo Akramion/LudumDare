@@ -10,9 +10,12 @@ public class PlayerMovement : MonoBehaviour
     float vertical;
     Vector2 mousePos;
     MovementController movementController;
+
+    private Animator animator;
     void Start()
     {
         movementController = GetComponent<MovementController>(); 
+        animator = gameObject.GetComponent<Animator>();
     }
 
    
@@ -22,7 +25,20 @@ public class PlayerMovement : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical"); 
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        Animate();
         
+    }
+
+    private void Animate() {
+        Debug.Log(horizontal);
+        if(horizontal != 0 || vertical != 0) {
+            animator.SetBool("isMove", true);
+        }
+
+        else {
+            animator.SetBool("isMove", false);
+        }
     }
 
     private void FixedUpdate() {

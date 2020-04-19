@@ -12,7 +12,7 @@ public class ShootingController : MonoBehaviour
     private Rigidbody2D rigidbody;
 
     public Camera cam;
-    Vector2 mousePos;
+    Vector3 mousePos;
 
     public float spray;
 
@@ -46,7 +46,7 @@ public class ShootingController : MonoBehaviour
 
         GameObject bullet = Instantiate(prefabBullet, fireHole.transform.position, fireHole.transform.rotation);
         Rigidbody2D rigidbodyBullet = bullet.GetComponent<Rigidbody2D>(); 
-        Vector2 shootingVec = fireHole.transform.up;
+        Vector2 shootingVec = fireHole.transform.right;
 
         shootingVec.x = Random.Range(shootingVec.x + spray, shootingVec.x - spray);
         shootingVec.y = Random.Range(shootingVec.y + spray, shootingVec.y - spray);
