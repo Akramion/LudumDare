@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Animate() {
-        Debug.Log(horizontal);
         if(horizontal != 0 || vertical != 0) {
             animator.SetBool("isMove", true);
         }
