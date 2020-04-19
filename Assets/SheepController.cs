@@ -11,6 +11,7 @@ public class SheepController : MonoBehaviour
     private float wayPassed;
     public float speed;
     private float timeToReachTarget;
+    private Animator animator;
 
     private MovementController movementController;
 
@@ -22,6 +23,7 @@ public class SheepController : MonoBehaviour
 
     void Start()
     {
+        animator = gameObject.GetComponent<Animator>();
         movementController = GetComponent<MovementController>();
         SetStateEat(5.0f);
     }
@@ -49,6 +51,8 @@ public class SheepController : MonoBehaviour
     {
         if (target == transform.position)
         {
+            animator.SetBool("isWalk", false);
+            animator.SetBool("isEat", true);
             SetStateEat(2.0f);
         }
         else
@@ -60,15 +64,23 @@ public class SheepController : MonoBehaviour
 
     private void Eat()
     {
+        animator.SetBool("isEat", true);
+        if (timer < 0.1f)
+        {
+            animator.SetBool("isEat", false);
+            animator.SetBool("isWalk", true);
+        }
+
         if (timer <= 0.0f)
         {
-            Debug.Log("asdasdasdas");
+
             SetStateWalk();
         }
     }
 
     private void TimerCount()
     {
+
         if (timer > 0)
         {
             timer -= Time.deltaTime;
@@ -91,5 +103,6 @@ public class SheepController : MonoBehaviour
         wayPassed = 0;
         timeToReachTarget = Vector3.Distance(target, transform.position)/speed;
         state = State.Walk;
+        animator.SetBool("isWalk", true);
     }
 }
