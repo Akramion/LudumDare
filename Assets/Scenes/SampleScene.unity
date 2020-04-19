@@ -382,7 +382,9 @@ MonoBehaviour:
     type: 3}
   fireHole: {fileID: 1908769124}
   bulletSpeed: 20
+  linePrefab: {fileID: 0}
   cam: {fileID: 519420031}
+  spray: 0
 --- !u!1 &696134190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,14 +1485,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914166814}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1908769125}
   m_Father: {fileID: 591726354}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1914166816
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,13 +9,6 @@ public class HandController : MonoBehaviour
     private void Start() {
         playerTransform = transform.parent.transform;
     }
-<<<<<<< HEAD
-=======
-    public void AngleHand(Vector2 mousePos) {
-        Vector2 lookDir = mousePos - rigidbody.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        
->>>>>>> refs/remotes/origin/master
 
     private void FixedUpdate()
     {
