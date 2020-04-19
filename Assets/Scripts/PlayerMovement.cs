@@ -22,10 +22,10 @@ public class PlayerMovement : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical"); 
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        
     }
 
     private void FixedUpdate() {
         movementController.Move(new Vector2(horizontal, vertical));
-        handController.AngleHand(mousePos);
     }
 }
