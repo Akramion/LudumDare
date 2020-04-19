@@ -7,9 +7,15 @@ public class MovementController : MonoBehaviour
     public float moveSpeed;
     public float moveLimiter = 0.7f;
     private Rigidbody2D rigidbody;
+    private bool m_FacingRight = true;
+
+    
+
+    private GameObject hand;
 
     private void Start() {
         rigidbody = GetComponent<Rigidbody2D>(); 
+        hand = gameObject.transform.GetChild(0).gameObject;
         
     }
 
@@ -35,4 +41,19 @@ public class MovementController : MonoBehaviour
         }
 >>>>>>> a1750b3a1f8b3a3b7135f02cb2726ff99a7a1766
     }
+
+	private void Flip()
+	{
+		// Switch the way the player is labelled as facing.
+		m_FacingRight = !m_FacingRight;
+
+        Vector3 handScale = hand.transform.localScale;
+        handScale.y *= -1;
+        hand.transform.localScale = handScale;
+
+		// Multiply the player's x local scale by -1.
+		Vector3 theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
+	}
 }
