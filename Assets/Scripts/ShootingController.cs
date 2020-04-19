@@ -39,23 +39,6 @@ public class ShootingController : MonoBehaviour
         if(spray < 0) {
             spray = 0;
         } 
-
-        SpawnLine();
-    }
-
-    void SpawnLine() {
-        GameObject newLine = Instantiate(linePrefab);
-        Debug.Log(Input.mousePosition);
-        Vector3 screenPoint = Input.mousePosition;
-        screenPoint.z = 10;
-        Vector3 worldPoint = Camera.main.ScreenToWorldPoint(screenPoint) ;
-        LineRenderer lineRend = newLine.GetComponent<LineRenderer>();
-        Vector3 snipeVec = fireHole.transform.TransformPoint(fireHole.transform.up);
-
-        lineRend.SetPosition(0, new Vector3(fireHole.transform.position.x, fireHole.transform.position.y, 0));
-        lineRend.SetPosition(1, new Vector3(worldPoint.x, worldPoint.y, 0));
-
-        Destroy(newLine, 0.07f);
     }
 
 
