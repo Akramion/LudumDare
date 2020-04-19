@@ -10,6 +10,7 @@ public class MovementController : MonoBehaviour
 
     private void Start() {
         rigidbody = GetComponent<Rigidbody2D>(); 
+        
     }
 
     public void Move(Vector2 movement) {
@@ -19,6 +20,9 @@ public class MovementController : MonoBehaviour
             movement.y *= moveLimiter;
         }
 
+<<<<<<< HEAD
         rigidbody.velocity = new Vector2(movement.x * moveSpeed, movement.y * moveSpeed);
+=======
+>>>>>>> a1750b3a1f8b3a3b7135f02cb2726ff99a7a1766
     }
 }
