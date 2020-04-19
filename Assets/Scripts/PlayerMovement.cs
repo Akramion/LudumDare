@@ -27,6 +27,5 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate() {
         movementController.Move(new Vector2(horizontal, vertical));
-        handController.AngleHand(mousePos);
     }
 }

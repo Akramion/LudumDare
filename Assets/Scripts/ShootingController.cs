@@ -19,6 +19,7 @@ public class ShootingController : MonoBehaviour
     private void Start() {
         spray = 0.1f;
     }
+
     void Update()
     {
 
