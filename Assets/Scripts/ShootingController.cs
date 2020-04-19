@@ -12,12 +12,13 @@ public class ShootingController : MonoBehaviour
     private Rigidbody2D rigidbody;
 
     public Camera cam;
-    Vector2 mousePos;
+    Vector3 mousePos;
 
     public float spray;
 
     private void Start() {
         spray = 0.1f;
+        
     }
 
     void Update()
@@ -44,13 +45,17 @@ public class ShootingController : MonoBehaviour
 
     void SpawnLine() {
         GameObject newLine = Instantiate(linePrefab);
+        Debug.Log(Input.mousePosition);
+        Vector3 screenPoint = Input.mousePosition;
+        screenPoint.z = 10;
+        Vector3 worldPoint = Camera.main.ScreenToWorldPoint(screenPoint) ;
         LineRenderer lineRend = newLine.GetComponent<LineRenderer>();
         Vector3 snipeVec = fireHole.transform.TransformPoint(fireHole.transform.up);
 
-        Debug.Log(snipeVec);
+        lineRend.SetPosition(0, new Vector3(fireHole.transform.position.x, fireHole.transform.position.y, 0));
+        lineRend.SetPosition(1, new Vector3(worldPoint.x, worldPoint.y, 0));
 
-        lineRend.SetPosition(0, new Vector3(snipeVec.x, snipeVec.y, 0));
-        lineRend.SetPosition(1, new Vector3(fireHole.transform.up.x * 5, fireHole.transform.up.y * 5, 0));
+        Destroy(newLine, 0.07f);
     }
 
 
@@ -58,7 +63,7 @@ public class ShootingController : MonoBehaviour
 
         GameObject bullet = Instantiate(prefabBullet, fireHole.transform.position, fireHole.transform.rotation);
         Rigidbody2D rigidbodyBullet = bullet.GetComponent<Rigidbody2D>(); 
-        Vector2 shootingVec = fireHole.transform.up;
+        Vector2 shootingVec = fireHole.transform.right;
 
         shootingVec.x = Random.Range(shootingVec.x + spray, shootingVec.x - spray);
         shootingVec.y = Random.Range(shootingVec.y + spray, shootingVec.y - spray);
